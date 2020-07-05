@@ -11,7 +11,10 @@
             clearable
             dark
             multiple
-            chips
+            item-text="label"
+            item-value="id"
+            return-object
+            small-chips
           >
           </v-autocomplete>
         </v-col>
@@ -34,11 +37,27 @@ export default {
     search(value) {
       this.fetchSuggestions(value)
     },
+    select(value) {
+      console.log('selected :', value)
+    },
   },
 
   methods: {
     fetchSuggestions(value) {
-      this.items = ['fu', 'fu so hard', 'fu wtf is this shit']
+      this.items = [
+        {
+          id: 'fu',
+          label: 'fu',
+        },
+        {
+          id: 'fu so hard',
+          label: 'fu so hard',
+        },
+        {
+          id: 'fu wtf is this shit',
+          label: 'fu wtf is this shit',
+        },
+      ]
     },
   },
 }
